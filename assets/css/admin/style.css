@@ -1,0 +1,63 @@
+.table td, .table th {
+    vertical-align: middle;
+}
+
+.table th {
+    font-weight: bold;
+    text-transform: uppercase;
+    /* text-align: center; */
+}
+
+.pagination .page-item.active .page-link { 
+    background-color: #198754; 
+    color: #ffffff;
+}
+
+.pagination .page-item .page-link { 
+    color: #000000;
+}
+
+.form-title {
+    text-align: left; 
+    border-bottom: 0.1rem solid #000000; 
+    line-height: 0.3rem;
+    margin-bottom: 1.5rem; 
+} 
+
+.form-title span { 
+    background: #ffffff; 
+}
+
+.alert-messages {
+    display: none;
+}
+
+.navbar .sign-out {
+    border-left: 0.125rem solid #ffc107;
+}
+
+.navbar .sign-out a {
+    margin-left: 1rem;
+}
+
+.input-group-text i {
+    width: 2rem;
+}
+
+.adminPassword i,
+.adminCPassword i,
+.adminCurPassword i {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    color: #ccc;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.adminPassword i.active::before,
+.adminCPassword i.active::before,
+.adminCurPassword i.active::before {
+    color: #333;
+    content: "\f070";
+}

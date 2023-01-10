@@ -1,0 +1,267 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-image: url("../images/bg.jpg");
+    background-color: #000000ea;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-position: center;
+    background-repeat: repeat; /* repeat-y  no-repeat*/
+    background-size: cover;
+}
+
+.navbar {
+    background-color: #ffffffdd;
+    transition: background-color 200ms linear;
+}
+
+.scrolled {
+    background-color: #030303ea;
+    transition: background-color 200ms linear;
+}
+
+.scrolled .navbar-brand span {
+    color: #ffffff;
+}
+
+.scrolled .navbar-nav .nav-item .nav-link {
+    color: #ffffff;
+    font-weight: bold;
+    border-bottom: 0.125rem solid transparent;
+}
+
+.navbar img,
+#signinModal .modal-header img,
+#signupModal .modal-header img,
+#forgotPasswordModal .modal-header img,
+#changePasswordModal .modal-header img,
+#hdFormModal .modal-header img,
+#generateQNModal .modal-header img {
+    width: auto;
+    height: 5rem;
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: #000000;
+    font-weight: bold;
+    border-bottom: 0.125rem solid transparent;
+}
+
+.navbar-nav .nav-item .nav-link:hover,
+.navbar-nav .nav-item .active,
+.scrolled .navbar-nav .nav-item .active {
+    color: #198754;
+    border-bottom: 0.125rem solid #198754;
+}
+
+.navbar .sign-out {
+    border-left: 0.125rem solid #198754;
+}
+
+.navbar .sign-out a {
+    margin-left: 1rem;
+}
+
+#footer .footer-promises {
+    border-left: 0.125rem solid #ffffff;
+    border-right: 0.125rem solid #ffffff;
+}
+
+@media only screen and (max-width: 991px) { 
+    /* .navbar {
+        background-color: #ffffffdd;
+    } */
+
+    .navbar img {
+        width: 3rem;
+        height: auto;
+    }
+
+    .navbar-nav .nav-item .nav-link {
+        /* color: #198754; */
+        font-weight: bold;
+        border-bottom: 0.125rem solid transparent;
+    }
+
+    .navbar-nav .nav-item .nav-link:hover,
+    .navbar-nav .nav-item .active,
+    .scrolled .navbar-nav .nav-item .active {
+        color: #ffffff;
+        /* border-bottom: 0.125rem solid #198754; */
+        background-color: #1987549e;
+    }
+
+    .navbar .sign-out {
+        border-top: 0.125rem solid #198754;
+        border-left: none;
+        padding: 1rem;
+    }
+
+    .navbar .sign-out a {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    #footer .footer-promises {
+        border-left: none;
+        border-right: none;
+        border-top: 0.125rem solid #ffffff;
+        border-bottom: 0.125rem solid #ffffff;
+    }
+}
+
+/* Product Slider Using Swiper */
+.swiper {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 25rem;
+    object-fit: cover;
+}
+/* End of Product Slider Using Swiper */
+
+#main-content {
+    padding-top: 8rem;
+    margin-bottom: 2rem;
+}
+
+#main-content .container {
+    background-color: #ffffff6f;
+    padding: 0.5rem 1rem;
+}
+
+#main-content .container .row .text-justify,
+#footer .container .row .text-justify,
+#forgotPasswordModal .modal-body .text-justify,
+#dataPAgreementModal .modal-body .text-justify,
+#generateQNModal .modal-body .text-justify {
+    text-indent: 3rem;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+#main-content .main-functions a {
+    font-size: 8rem;
+    text-decoration: none;
+}
+
+#main-content .main-functions .function:hover {
+    background-color: #1987546f;
+}
+
+#main-content .btn-flat,
+#modal-content .btn-flat,
+#header .btn-flat {
+    border-radius: 0;
+    border-width: 1px;
+    box-shadow: none;
+}
+
+.input-group-text i,
+#footer .socials-icons i {
+    width: 2rem;
+}
+
+.form-title {
+    text-align: left; 
+    border-bottom: 0.1rem solid #ffffff; 
+    line-height: 0.3rem;
+    margin-bottom: 1.5rem; 
+}
+
+.userPassword i,
+.userCPassword i,
+.userCurPassword i {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    color: #ccc;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.userPassword i.active::before,
+.userCPassword i.active::before,
+.userCurPassword i.active::before {
+    color: #333;
+    content: "\f070";
+}
+
+.alert-messages {
+    display: none;
+}
+
+.table td, .table th {
+    vertical-align: middle;
+}
+
+.table th {
+    font-weight: bold;
+    text-transform: uppercase;
+    /* text-align: center; */
+}
+
+.pagination .page-item.active .page-link { 
+    background-color: #198754; 
+    color: #ffffff;
+}
+
+.pagination .page-item .page-link { 
+    color: #000000;
+}
+
+.sitemap {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 40%;
+}
+
+.sitemap iframe{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+#footer {
+    margin-top: auto;
+    background-color: #ffffff99;
+}
+
+
+
