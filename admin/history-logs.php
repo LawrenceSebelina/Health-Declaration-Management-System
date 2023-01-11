@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <?php require_once('../assets/components/admin/head.php'); ?>
-    <title>Activity Logs</title>
+    <title>History Logs</title>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed sidebar-collapse layout-navbar-fixed">
     <div class="wrapper">
@@ -15,11 +15,11 @@
                     <div class="container-fluid">
                         <div class="row mb-2">
                             <div class="col-sm-6">
-                                <h1>Activity Logs</h1>
+                                <h1>History Logs</h1>
                             </div>
                             <div class="col-sm-6">
                                 <ol class="breadcrumb float-sm-right">
-                                    <li class="breadcrumb-item active">Activity Logs</li>
+                                    <li class="breadcrumb-item active">History Logs</li>
                                 </ol>
                             </div>
                         </div>
@@ -31,16 +31,16 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="card">
-                                    <?php if (isset($_GET['route']) && !empty($_GET['route']) && $_GET['route'] == "activity-logs") { ?>
+                                    <?php if (isset($_GET['route']) && !empty($_GET['route']) && $_GET['route'] == "history-logs") { ?>
                                         <div class="card-header bg-dark">
-                                            <h3 class="card-title"><i class="fa-solid fa-address-book me-2"></i>Activity Logs</h3>
+                                            <h3 class="card-title"><i class="fa-solid fa-address-book me-2"></i>History Logs</h3>
                                         </div>
                                         <div class="card-body overflow-auto">
-                                            <table id="activityLogsTable" class="table table-bordered" style="width:100%">
+                                            <table id="historyLogsTable" class="table table-bordered" style="width:100%">
                                                 <thead class="table-dark">
                                                     <tr>
                                                         <th>#</th>
-                                                        <th>Activity Unique Id</th>
+                                                        <th>History Unique Id</th>
                                                         <th>Name</th>
                                                         <th>User Type</th>
                                                         <th>Activity</th>
@@ -68,7 +68,7 @@
                                                             <input type="hidden" value="<?php echo $info['userUniqueId'] ?? ""; ?>" name="userUniqueId">
                                                             
                                                             <div class="text-center mb-2">
-                                                                <h4>Are you sure you want to delete this activity of <strong><span id="deleteActivity" class="text-danger"></span></strong>?</h4>
+                                                                <h4>Are you sure you want to delete this history of <strong><span id="deleteActivity" class="text-danger"></span></strong>?</h4>
                                                             </div> 
                                                         </div> 
                                                         <div class="modal-footer">
@@ -96,16 +96,16 @@
             <script>
                 $(document).ready(function () { 
                     // TODO Table First
-                    var activityLogsTable = $('#activityLogsTable').DataTable({
+                    var historyLogsTable = $('#historyLogsTable').DataTable({
                         "ordering": false,
-                        "ajax": '../partials/php/get-activity-logs.php',
+                        "ajax": '../partials/php/get-history-logs.php',
                         "columns": [
-                            {data: "activityId"},
-                            {data: "activityUniqueId"},
-                            {data: "activityFullName"},
-                            {data: "activityUserType"},
-                            {data: "activityDone"},
-                            {data: "activityDateCreated"},
+                            {data: "historyId"},
+                            {data: "historyUniqueId"},
+                            {data: "historyFullName"},
+                            {data: "historyUserType"},
+                            {data: "historyDone"},
+                            {data: "historyDateCreated"},
                             {data: "action"}
                         ],
                         "columnDefs": [
@@ -117,10 +117,10 @@
                     });
 
                     setInterval( function () {
-                        activityLogsTable.ajax.reload( null, false );
+                        historyLogsTable.ajax.reload( null, false );
                     }, 3000 );
 
-                    activityLogsTable.on('click', '.deleteALBtn', function() {
+                    historyLogsTable.on('click', '.deleteALBtn', function() {
                         $('#deleteALModal').modal('show');
 
                         $tr = $(this).closest('tr');

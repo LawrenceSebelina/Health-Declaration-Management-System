@@ -728,10 +728,10 @@
                 foreach ($datas as $data) { 
                     $actions = 
                     '<div class="justify-content-center hstack gap-2">
-                        <a class="btn btn-primary btn-flat fs-5" href="index.php?route=manage-accounts&action=edit-account&uid='.$data['userUniqueId'].'" role="button">
+                        <a class="btn btn-primary btn-flat fs-5" href="index.php?route=manage-accounts&action=edit-account&uid='.$data['userUniqueId'].'" role="button" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Update User Profile" onmouseover="mouseOver()">
                             <i class="fa-solid fa-user-pen p-1"></i>
                         </a>
-                        <button type="button" class="btn btn-danger btn-flat fs-5 deleteAABtn">
+                        <button type="button" class="btn btn-danger btn-flat fs-5 deleteAABtn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete User Profile" onmouseover="mouseOver()">
                             <i class="fa-solid fa-user-xmark p-1"></i>
                         </button>
                     </div>';
@@ -973,9 +973,15 @@
                 $answersCounter++;
             }
 
+            if ($answersCounter > 0) {
+                $declarationResult = "Positive";
+            } else {
+                $declarationResult = "Negative";
+            }
+
             $connection = $this->connect();
-            $stmt = $connection->prepare("INSERT INTO declarations (declarationUniqueId, userUniqueId, userComorbidity, userTemperature, declarationPoints, declarationDateCreated) VALUES (?, ?, ?, ?, ?, ?)");
-            $stmt->execute([$declarationUniqueId, $userUniqueId, $userComorbidity, $userTemperature, $answersCounter, $declarationDateCreated]);
+            $stmt = $connection->prepare("INSERT INTO declarations (declarationUniqueId, userUniqueId, userComorbidity, userTemperature, declarationPoints, declarationResult, declarationDateCreated) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            $stmt->execute([$declarationUniqueId, $userUniqueId, $userComorbidity, $userTemperature, $answersCounter, $declarationResult, $declarationDateCreated]);
 
             if ($stmt) {
                 $activityUniqueId = md5(uniqid(mt_rand() . time(), true));
@@ -1149,7 +1155,7 @@
                     $actions = 
                     '<div class="justify-content-center hstack gap-2">
                         
-                        <button type="button" class="btn btn-danger btn-flat fs-5 deleteBBtn">
+                        <button type="button" class="btn btn-danger btn-flat fs-5 deleteBBtn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete Building" onmouseover="mouseOver()">
                             <i class="fa-solid fa-trash-can p-1"></i>
                         </button>
                     </div>';
@@ -1299,10 +1305,10 @@
                 foreach ($datas as $data) { 
                     $actions = 
                     '<div class="justify-content-center hstack gap-2">
-                        <a class="btn btn-primary btn-flat fs-5" href="index.php?route=questions&action=edit-question&qid='.$data['questionUniqueId'].'" role="button">
+                        <a class="btn btn-primary btn-flat fs-5" href="index.php?route=questions&action=edit-question&qid='.$data['questionUniqueId'].'" role="button" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Update Question" onmouseover="mouseOver()">
                             <i class="fa-solid fa-pen-to-square p-1"></i>
                         </a>
-                        <button type="button" class="btn btn-danger btn-flat fs-5 deleteQBtn">
+                        <button type="button" class="btn btn-danger btn-flat fs-5 deleteQBtn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete Question" onmouseover="mouseOver()">
                             <i class="fa-solid fa-trash-can p-1"></i>
                         </button>
                     </div>';
@@ -1538,10 +1544,10 @@
                 foreach ($datas as $data) { 
                     $actions = 
                     '<div class="justify-content-center hstack gap-2">
-                        <a class="btn btn-success btn-flat fs-5" href="index.php?route=declaration-forms&view='.$data['declarationUniqueId'].'" role="button">
+                        <a class="btn btn-success btn-flat fs-5" href="index.php?route=declaration-forms&view='.$data['declarationUniqueId'].'" role="button" data-bs-toggle="tooltip" data-bs-placement="bottom" title="View Health Dec Form" onmouseover="mouseOver()">
                             <i class="fa-solid fa-eye p-1"></i>
                         </a>
-                        <button type="button" class="btn btn-danger btn-flat fs-5 deleteHDFBtn">
+                        <button type="button" class="btn btn-danger btn-flat fs-5 deleteHDFBtn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete Health Dec Form" onmouseover="mouseOver()">
                             <i class="fa-solid fa-trash-can p-1"></i>
                         </button>
                     </div>';
@@ -1551,6 +1557,7 @@
                         "declarationUniqueId" => $data['declarationUniqueId'],
                         "userFullName" => $data['userFName'] . " " . $data['userLName'],
                         "userType" => $data['userType'],
+                        "declarationResult" => $data['declarationResult'],
                         "declarationDateCreated" => date('m/d/Y h:i a', strtotime($data['declarationDateCreated'])),
                         "actions" => $actions
                     );
@@ -1582,7 +1589,7 @@
                 foreach ($datas as $data) { 
                     $actions = 
                     '<div class="justify-content-center hstack gap-2">
-                        <a class="btn btn-success btn-flat fs-5" href="index.php?route=declaration-forms-report&view='.$data['declarationUniqueId'].'" role="button">
+                        <a class="btn btn-success btn-flat fs-5" href="index.php?route=declaration-forms-report&view='.$data['declarationUniqueId'].'" role="button" data-bs-toggle="tooltip" data-bs-placement="bottom" title="View Health Dec Form" onmouseover="mouseOver()">
                             <i class="fa-solid fa-eye p-1"></i>
                         </a>
                     </div>';
@@ -1591,6 +1598,7 @@
                         "declarationId" => $data['declarationId'],
                         "userFullName" => $data['userFName'] . " " . $data['userLName'],
                         "userType" => $data['userType'],
+                        "declarationResult" => $data['declarationResult'],
                         "declarationDateCreated" => date('m/d/Y h:i a', strtotime($data['declarationDateCreated'])),
                         "actions" => $actions
                     );
@@ -1618,7 +1626,7 @@
                 foreach ($datas as $data) { 
                     $actions = 
                     '<div class="justify-content-center hstack gap-2">
-                        <a class="btn btn-success btn-flat fs-5" href="index.php?route=my-settings&action=my-hdf&view='.$data['declarationUniqueId'].'" role="button">
+                        <a class="btn btn-success btn-flat fs-5" href="index.php?route=my-settings&action=my-hdf&view='.$data['declarationUniqueId'].'" role="button" data-bs-toggle="tooltip" data-bs-placement="bottom" title="View Health Dec Form" onmouseover="mouseOver()">
                             <i class="fa-solid fa-eye p-1"></i>
                         </a>
                     </div>';
@@ -1626,6 +1634,7 @@
                     $arrayDatas[] = array(
                         "declarationId" => $data['declarationId'],
                         "userFullName" => $data['userFName'] . " " . $data['userLName'],
+                        "declarationResult" => $data['declarationResult'],
                         "declarationDateCreated" => date('m/d/Y h:i a', strtotime($data['declarationDateCreated'])),
                         "action" => $actions
                     );
@@ -1732,7 +1741,7 @@
                 foreach ($datas as $data) { 
                     $actions = 
                     '<div class="justify-content-center hstack gap-2">
-                        <a class="btn btn-success btn-flat fs-5" href="index.php?route=queues&view='.$data['declarationUniqueId'].'&vbuid='.$data['buildingUniqueId'].'&bn='.$data['queueBuilding'].'" role="button">
+                        <a class="btn btn-success btn-flat fs-5" href="index.php?route=queues&view='.$data['declarationUniqueId'].'&vbuid='.$data['buildingUniqueId'].'&bn='.$data['queueBuilding'].'" role="button" data-bs-toggle="tooltip" data-bs-placement="bottom" title="View Health Dec Form" onmouseover="mouseOver()">
                             <i class="fa-solid fa-eye p-1"></i>
                         </a>
                         
@@ -1795,7 +1804,7 @@
                 foreach ($datas as $data) { 
                     $actions = 
                     '<div class="justify-content-center hstack gap-2">
-                        <button type="button" class="btn btn-danger btn-flat fs-5 deleteCUBtn">
+                        <button type="button" class="btn btn-danger btn-flat fs-5 deleteCUBtn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete Contact Us" onmouseover="mouseOver()">
                             <i class="fa-solid fa-trash-can p-1"></i>
                         </button>
                     </div>';
@@ -1834,17 +1843,17 @@
                     $actions = 
                     '<div class="justify-content-center hstack gap-2">
                         <button type="button" class="btn btn-danger btn-flat fs-5 deleteALBtn">
-                            <i class="fa-solid fa-trash-can p-1"></i>
+                            <i class="fa-solid fa-trash-can p-1" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete History Log" onmouseover="mouseOver()"></i>
                         </button>
                     </div>';
 
                     $arrayDatas[] = array(
-                        "activityId" => $data['activityId'],
-                        "activityUniqueId" => $data['activityUniqueId'],
-                        "activityFullName" => $data['userFName'] . " " . $data['userLName'],
-                        "activityUserType" => $data['userType'],
-                        "activityDone" => $data['activityDone'],
-                        "activityDateCreated" => date('m/d/Y h:i a', strtotime($data['activityDateCreated'])),
+                        "historyId" => $data['activityId'],
+                        "historyUniqueId" => $data['activityUniqueId'],
+                        "historyFullName" => $data['userFName'] . " " . $data['userLName'],
+                        "historyUserType" => $data['userType'],
+                        "historyDone" => $data['activityDone'],
+                        "historyDateCreated" => date('m/d/Y h:i a', strtotime($data['activityDateCreated'])),
                         "action" => $actions
                     );
                 }

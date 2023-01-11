@@ -38,6 +38,15 @@
                 <li class="nav-header">MENU</li>
 
                 <li class="nav-item">
+                    <a href="index.php?route=dashboard" class="nav-link nav-dashboard" data-bs-toggle="tooltip" data-bs-placement="right" title="Dashboard">
+                        <i class="nav-icon fa-solid fa-gauge-simple-high"></i>
+                        <p>
+                            Dashboard
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a href="#" class="nav-link nav-buildings nav-queues">
                         <i class="nav-icon fa-solid fa-hospital"></i>
                         <p>
@@ -47,7 +56,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="index.php?route=buildings" class="nav-link nav-buildings">
+                            <a href="index.php?route=buildings" class="nav-link nav-buildings" data-bs-toggle="tooltip" data-bs-placement="right" title="Manage Buildings">
                                 <i class="fa-solid fa-hospital-user nav-icon"></i>
                                 <p>Manage Buildings</p>
                             </a>
@@ -63,7 +72,7 @@
                         ?>
 
                         <li class="nav-item">
-                            <a href="index.php?route=queues&buid=<?php echo $defaultBuilding[0] ?? ""; ?>" class="nav-link nav-queues">
+                            <a href="index.php?route=queues&buid=<?php echo $defaultBuilding[0] ?? ""; ?>" class="nav-link nav-queues" data-bs-toggle="tooltip" data-bs-placement="right" title="Monitor Queues">
                                 <i class="fa-solid fa-arrow-up-9-1 nav-icon"></i>
                                 <p>Monitor Queues</p>
                             </a>
@@ -115,13 +124,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="index.php?route=questions" class="nav-link nav-questions">
+                            <a href="index.php?route=questions" class="nav-link nav-questions" data-bs-toggle="tooltip" data-bs-placement="right" title="Manage Questions">
                                 <i class="fa-solid fa-solid fa-circle-question nav-icon"></i>
                                 <p>Manage Questions</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                        <a href="index.php?route=declaration-forms" class="nav-link nav-declaration-forms">
+                        <a href="index.php?route=declaration-forms" class="nav-link nav-declaration-forms" data-bs-toggle="tooltip" data-bs-placement="right" title="Declaration Forms">
                                 <i class="fa-solid fa-newspaper nav-icon"></i>
                                 <p>Declaration Forms</p>
                             </a>
@@ -147,7 +156,7 @@
                 </li>  -->
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link nav-activity-logs nav-manage-accounts nav-contact-us">
+                    <a href="#" class="nav-link nav-history-logs nav-manage-accounts nav-contact-us">
                         <i class="nav-icon fa-solid fa-cog"></i>
                         <p>
                             Configuration
@@ -156,19 +165,19 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="index.php?route=activity-logs" class="nav-link nav-activity-logs">
+                            <a href="index.php?route=history-logs" class="nav-link nav-history-logs" data-bs-toggle="tooltip" data-bs-placement="right" title="Manage History Logs">
                                 <i class="fa-solid fa-solid fa-address-book nav-icon"></i>
-                                <p>Activity Logs</p>
+                                <p>History Logs</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="index.php?route=manage-accounts" class="nav-link nav-manage-accounts">
+                            <a href="index.php?route=manage-accounts" class="nav-link nav-manage-accounts" data-bs-toggle="tooltip" data-bs-placement="right" title="Manage Accounts">
                                 <i class="fa-solid fa-solid fa-users-gear nav-icon"></i>
                                 <p>Manage Accounts</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="index.php?route=contact-us" class="nav-link nav-contact-us">
+                            <a href="index.php?route=contact-us" class="nav-link nav-contact-us" data-bs-toggle="tooltip" data-bs-placement="right" title="Manage Contact Us">
                                 <i class="fa-solid fa-phone nav-icon"></i>
                                 <p>Contact Us</p>
                             </a>
@@ -187,7 +196,7 @@
 
                 
                 <li class="nav-item">
-                    <a href="#" class="nav-link nav-form-questionnaire-report nav-declaration-forms-report nav-queues-report nav-activity-logs-report">
+                    <a href="#" class="nav-link nav-form-questionnaire-report nav-declaration-forms-report nav-queues-report nav-history-logs-report">
                     <i class="nav-icon fa-solid fa-folder-closed"></i>
                         <p>
                             Reports
@@ -208,31 +217,31 @@
                             </a>
                         </li> -->
                         <li class="nav-item">
-                            <a href="index.php?route=queues-report&buid=<?php echo $defaultBuilding[0] ?? ""; ?>" class="nav-link nav-queues-report">
+                            <a href="index.php?route=queues-report&buid=<?php echo $defaultBuilding[0] ?? ""; ?>" class="nav-link nav-queues-report" data-bs-toggle="tooltip" data-bs-placement="right" title="Queues Report">
                                 <i class="fa-solid fa-arrow-up-9-1 nav-icon"></i>
                                 <p>Queues</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="index.php?route=form-questionnaire-report" class="nav-link nav-form-questionnaire-report">
+                            <a href="index.php?route=form-questionnaire-report" class="nav-link nav-form-questionnaire-report" data-bs-toggle="tooltip" data-bs-placement="right" title="Print Form Questionnaire">
                                 <i class="fa-solid fa-table-list nav-icon"></i>
                                 <p>Form Questionnaire</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="index.php?route=declaration-forms-report" class="nav-link nav-declaration-forms-report">
+                            <a href="index.php?route=declaration-forms-report" class="nav-link nav-declaration-forms-report" data-bs-toggle="tooltip" data-bs-placement="right" title="Declaration Forms Report">
                                 <i class="fa-solid fa-newspaper nav-icon"></i>
                                 <p>Declaration Forms</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="index.php?route=activity-logs-report" class="nav-link nav-activity-logs-report">
+                            <a href="index.php?route=history-logs-report" class="nav-link nav-history-logs-report" data-bs-toggle="tooltip" data-bs-placement="right" title="History Logs Report">
                                 <i class="fa-solid fa-solid fa-address-book nav-icon"></i>
-                                <p>Activity Logs</p>
+                                <p>History Logs</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="index.php?route=contact-us-report" class="nav-link nav-contact-us-report">
+                            <a href="index.php?route=contact-us-report" class="nav-link nav-contact-us-report" data-bs-toggle="tooltip" data-bs-placement="right" title="Contact Us Report">
                                 <i class="fa-solid fa-phone nav-icon"></i>
                                 <p>Contact Us</p>
                             </a>
@@ -242,7 +251,7 @@
 
 
                 <li class="nav-item">
-                    <a href="index.php?route=my-profile" class="nav-link nav-my-profile">
+                    <a href="index.php?route=my-profile" class="nav-link nav-my-profile" data-bs-toggle="tooltip" data-bs-placement="right" title="My Profile">
                         <i class="nav-icon fa-solid fa-user-gear"></i>
                         <p>
                             My Profile

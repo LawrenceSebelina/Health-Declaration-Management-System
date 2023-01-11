@@ -85,7 +85,7 @@ signinBtn.onclick = ()=> {
                 } else if (data === "guest") {
                     window.location.href = "index.php?route=my-home";
                 } else if (data === "admin") {
-                    window.location.href = "./admin/index.php?route=buildings";
+                    window.location.href = "./admin/index.php?route=dashboard";
                 } else {
                     signInAlertMsg.style.display = "block";
                     signInAlertMsg.textContent = data;

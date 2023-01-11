@@ -263,5 +263,8 @@ body {
     background-color: #ffffff99;
 }
 
-
+/* Datatables Search Panes */
+div.dtsp-searchPane div.dataTables_scrollBody {
+    height: 80px !important;
+}
 

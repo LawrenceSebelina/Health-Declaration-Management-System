@@ -4,23 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="assets/images/my-logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/images/my-logo.png" type="image/x-icon">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
     <!-- Fontawesome CSS -->
-    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="assets/vendor/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="../assets/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../assets/vendor/fontawesome/css/fontawesome.min.css">
     <!-- Swiper CSS -->
-    <link rel="stylesheet" href="assets/vendor/swiper/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="../assets/vendor/swiper/css/swiper-bundle.min.css">
     <!-- Sweetalert JS -->
-    <script src="assets/vendor/sweetalert/js/sweetalert.min.js"></script>
+    <script src="../assets/vendor/sweetalert/js/sweetalert.min.js"></script>
     
     <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="assets/vendor/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="../assets/vendor/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="assets/vendor/adminLTE/css/adminlte.min.css">
+    <link rel="stylesheet" href="../assets/vendor/adminLTE/css/adminlte.min.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
     <!-- Site wrapper -->
@@ -74,7 +74,7 @@
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src="assets/images/my-logo.png" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                                <img src="../assets/images/my-logo.png" alt="User Avatar" class="img-size-50 mr-3 img-circle">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         Brad Diesel
@@ -90,7 +90,7 @@
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src="assets/images/my-logo.png" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                                <img src="../assets/images/my-logo.png" alt="User Avatar" class="img-size-50 img-circle mr-3">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         John Pierce
@@ -106,7 +106,7 @@
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src="assets/images/my-logo.png" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                                <img src="../assets/images/my-logo.png" alt="User Avatar" class="img-size-50 img-circle mr-3">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         Nora Silvester
@@ -167,7 +167,7 @@
         <aside class="main-sidebar main-sidebar-custom sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="#" class="brand-link">
-                <img src="assets/images/my-logo.png" alt="UPHMC-B Logo" class="brand-image img-circle elevation-3">
+                <img src="../assets/images/my-logo.png" alt="UPHMC-B Logo" class="brand-image img-circle elevation-3">
                 <span class="brand-text font-weight-light">UPHMC-B</span>
             </a>
             
@@ -176,7 +176,7 @@
                 <!-- Sidebar user (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="assets/images/my-logo.png" class="img-circle elevation-2" alt="User Image">
+                        <img src="../assets/images/my-logo.png" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
                         <a href="#" class="d-block">Alexander Pierce</a>
@@ -918,19 +918,19 @@
         <!-- ./wrapper -->
         
     <!-- JQuery JS  -->
-    <script src="assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
     <!-- Bootstrap JS -->
-    <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/vendor/bootstrap/js/bootstrap.min.js"></script>
     <!-- overlayScrollbars -->
-    <script src="assets/vendor/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <script src="../assets/vendor/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="assets/vendor/adminLTE/js/adminlte.min.js"></script>
+    <script src="../assets/vendor/adminLTE/js/adminlte.min.js"></script>
 
 
     <!-- Swiper JS -->
-    <script src="assets/vendor/swiper/js/swiper-bundle.min.js"></script>
+    <script src="../assets/vendor/swiper/js/swiper-bundle.min.js"></script>
     <!-- Custom JS  -->
-    <script src="assets/js/script.js"></script>
+    <script src="../assets/js/script.js"></script>
 </body>
 </html>
     

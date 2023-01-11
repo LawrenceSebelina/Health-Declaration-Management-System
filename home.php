@@ -107,6 +107,9 @@
                                                                 <span class="input-group-text bg-white text-success"><i class="fa-solid fa-user-pen p-2"></i></span>
                                                                 <div class="form-floating">
                                                                     <input type="text" class="form-control" id="userUsername" name="userUsername" placeholder="Username" required>
+
+                                                                    <!-- maxlenght="15" -->
+
                                                                     <label for="userUsername">Username</label>
                                                                 </div>
                                                             </div>

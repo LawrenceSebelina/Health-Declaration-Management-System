@@ -477,6 +477,7 @@
 
                     setInterval( function () {
                         accountsTable.ajax.reload( null, false );
+                        $('[data-bs-toggle="tooltip"]').tooltip('hide');
                     }, 3000 );
 
                     accountsTable.on('click', '.deleteAABtn', function() {
@@ -493,7 +494,6 @@
                     });
                 
                 });
-                
             </script>
         </div>
 

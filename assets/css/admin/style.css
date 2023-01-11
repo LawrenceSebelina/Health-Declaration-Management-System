@@ -61,3 +61,8 @@
     color: #333;
     content: "\f070";
 }
+
+/* Datatables Search Panes */
+div.dtsp-searchPane div.dataTables_scrollBody {
+    height: 80px !important;
+}
