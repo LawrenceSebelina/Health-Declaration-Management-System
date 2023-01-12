@@ -6,7 +6,7 @@
     $userUniqueId = $_POST['userUniqueId'];
     $buildingName = $_POST['buildingName'];
 
-    $buildingQRLink = "HDMS/index.php?mab=".$buildingUniqueId; // Can change/ or may vary depending on Domain Name
+    $buildingQRLink = "HDMS/index.php?mab=".$buildingName; // Can change/ or may vary depending on Domain Name
 
     date_default_timezone_set('Asia/Manila');
     $buildingDateCreated = date('Y-m-d H:i:s');

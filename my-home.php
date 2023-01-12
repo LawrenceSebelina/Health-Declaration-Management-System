@@ -219,13 +219,30 @@
                                     </div>
                                 </div>
                             <?php } else { ?>
-                                <div class="mt-2"><h5 class="form-title"><span class="bg-success text-white">Your Building<?php echo $info['userMab']; ?></span></h5></div>
+                                <div class="mt-2">
+                                    <h5 class="form-title">
+                                        <span class="bg-success text-white">
+                                            Your Building (<?php echo $info['userMab']; ?>) 
+                                        </span>
+
+
+                                        <?php //if (!empty($buildings)) { ?>
+                                                <?php //foreach ($buildings as $building) { ?>
+                                                    <?php //if ($info['userMab'] == $building['buildingUniqueId']) { ?>
+                                                        <!-- <span class="bg-success text-white">
+                                                            Your Building (<?php //echo $building['buildingName']; ?>) 
+                                                        </span> -->
+                                                 <?php //} ?>
+                                            <?php// } ?>
+                                        <?php //} ?>
+                                    </h5>
+                                </div>
                                 <div class="input-group mb-3">       
                                     <span class="input-group-text bg-success text-white"><i class="fa-solid fa-hospital p-2"></i></span>
                                     <div class="form-floating">
                                         <?php if (!empty($buildings)) { ?>
                                             <?php foreach ($buildings as $building) { ?>
-                                                <?php if ($info['userMab'] == $building['buildingUniqueId']) { ?>
+                                                <?php if (md5($info['userMab']) == $building['buildingUniqueId']) { ?>
                                                     <input type="hidden" id="userBuilding" name="userBuilding" value="<?php echo $building['buildingUniqueId'].$building['buildingName'] ?? "";  ?>">
 
                                                     <input type="text" class="form-control" id="myBuilding" name="myBuilding" placeholder="Your Building" value="<?php echo $building['buildingName'] ?? "";  ?>" readonly>

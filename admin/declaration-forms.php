@@ -319,7 +319,10 @@
                         "searchPanes": {
                             layout: 'columns-1'
                         },
-                        "dom": 'Plfrtip',
+                        dom: "<'row'<'col-sm-12'P>>" + 
+                            "<'row'<'col-sm-5'l><'col-sm-7'f>>" +
+                            "<'row'<'col-sm-12'tr>>" +
+                            "<'row'<'col-sm-6'i><'col-sm-6'p>>",
                         "columnDefs": [
                             { 
                                 className: "d-none", "targets": [ 1 ] 

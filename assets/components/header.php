@@ -5,8 +5,14 @@
     if (!empty($info)) {
         if ($info['userType'] !== "Patient" && $info['userType'] !== "Guest") {
             echo "<script>
-                    window.location.assign('index.php?route=signout');
-                </script>";
+                window.location.assign('index.php?route=signout');
+            </script>";
+        }
+    } else {
+        if (isset($_GET['route']) && !empty($_GET['route']) && $_GET['route'] != "home") {
+            echo "<script>
+                window.location.assign('index.php?route=signout');
+            </script>";
         }
     }
 ?>

@@ -5,9 +5,25 @@
     <title>Home</title>
 </head>
 <body>
+
+    <?php require_once('assets/components/header.php'); ?>
+
     <?php 
         if (isset($_GET['mab']) && !empty($_GET['mab']) )  { //&& $_GET['mab'] == 1
             $myMab = $_GET['mab'];
+            $hasBuilding = $class->getBuildingMyMab($myMab);
+
+            if (!empty($hasBuilding)) {
+                foreach ($hasBuilding as $building) {
+                    $buildingName = $building['buildingName'];
+                }
+            } else {
+                echo "<script>
+                    swal('There is no building found!', 'Please re-scan the QR Code!', 'warning').then(function() {
+                        window.location.href = 'index.php?route=home';
+                    });
+                </script>";
+            }
         } else {
             $myMab = "Default";
         }
@@ -16,8 +32,6 @@
             $userUniqueIdFP = $_GET['uuid'];
         }
     ?>
-
-    <?php require_once('assets/components/header.php'); ?>
 
     <section id="main-content">
         <main>
@@ -101,7 +115,7 @@
                                                         <div class="vstack gap-2 px-3 pe-3 pb-3">
                                                             <div class="alert alert-danger alert-messages"></div>
 
-                                                            <input type="hidden" name="myMab" value="<?php echo  $myMab ?? ""?>">
+                                                            <input type="hidden" name="myMab" value="<?php echo  $buildingName ?? ""?>">
 
                                                             <div class="input-group">       
                                                                 <span class="input-group-text bg-white text-success"><i class="fa-solid fa-user-pen p-2"></i></span>

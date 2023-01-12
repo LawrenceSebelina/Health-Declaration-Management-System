@@ -1142,6 +1142,24 @@
     
         }
 
+        public function getBuildingMyMab($myMab) {
+
+            $connection = $this->connect();
+            $stmt = $connection->prepare("SELECT * FROM building WHERE buildingName = ?");
+            $stmt->execute([$myMab]);
+            $datas = $stmt->fetchAll(); 
+            $datacount = $stmt->rowCount();
+           
+            if ($datacount > 0) {
+                return $datas;
+            } else {
+                return false;
+            }
+            
+            $this->disconnect(); 
+    
+        }
+
         public function getBuildings() {
 
             $connection = $this->connect();
@@ -1865,6 +1883,66 @@
 
             $this->disconnect(); 
     
+        }
+
+        public function getHealthDecFormsDash() {
+
+            $connection = $this->connect();
+            $stmt = $connection->prepare("SELECT declarations.*, users.* FROM declarations LEFT JOIN users ON declarations.userUniqueId = users.userUniqueId WHERE declarationDel = ? ORDER BY declarationId DESC");
+            $stmt->execute([0]);
+            $datas = $stmt->fetchAll(); 
+            $datacount = $stmt->rowCount();
+           
+            if($datacount > 0) {
+                return $datas;
+            } else {
+                return false;
+            }
+        }
+
+        public function getHealthDecFormsSevenDaysDash() {
+
+            $connection = $this->connect();
+            $stmt = $connection->prepare("SELECT DATE_FORMAT(declarationDateCreated, '%b. %d, %Y') as healthDecDays, count(declarationDateCreated) as healthDecTotalDays FROM declarations WHERE declarationDel = ? GROUP BY DATE_FORMAT(declarationDateCreated, '%M %d, %Y') ORDER BY declarationId DESC LIMIT 7");
+            $stmt->execute([0]);
+            $datas = $stmt->fetchAll(); 
+            $datacount = $stmt->rowCount();
+           
+            if($datacount > 0) {
+                return $datas;
+            } else {
+                return false;
+            }
+        }
+
+        public function getAllUsersDash() {
+
+            $connection = $this->connect();
+            $stmt = $connection->prepare("SELECT * FROM users WHERE userDel = ? AND userVerify = ?");
+            $stmt->execute([0, 1]);
+            $datas = $stmt->fetchAll(); 
+            $datacount = $stmt->rowCount();
+           
+            if($datacount > 0) {
+                return $datas;
+            } else {
+                return false;
+            }
+        }
+
+        public function getAllQuestionsDash() {
+
+            $connection = $this->connect();
+            $stmt = $connection->prepare("SELECT * FROM questions WHERE questionDel = ?");
+            $stmt->execute([0]);
+            $datas = $stmt->fetchAll(); 
+            $datacount = $stmt->rowCount();
+           
+            if($datacount > 0) {
+                return $datas;
+            } else {
+                return false;
+            }
         }
 
     }

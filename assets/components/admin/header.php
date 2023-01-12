@@ -1,6 +1,24 @@
 <?php 
     require_once('../partials/class/allClass.php'); 
     $info = $class->getUserInfo();
+
+    // if (empty($info)) {
+    //     echo "<script>
+    //         window.location.assign('../index.php?route=home');
+    //     </script>";
+    // }
+
+    if (!empty($info)) {
+        if ($info['userType'] !== "Admin") {
+            echo "<script>
+                    window.location.assign('../index.php?route=signout');
+                </script>";
+        }
+    } else {
+        echo "<script>
+                window.location.assign('../index.php?route=signout');
+            </script>";
+    }
 ?>
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand navbar-success navbar-dark">
