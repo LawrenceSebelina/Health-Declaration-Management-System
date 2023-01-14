@@ -57,7 +57,7 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="index.php?route=buildings" class="nav-link nav-buildings" data-bs-toggle="tooltip" data-bs-placement="right" title="Manage Buildings">
-                                <i class="fa-solid fa-hospital-user nav-icon"></i>
+                                <i class="fa-solid fa-hospital nav-icon"></i>
                                 <p>Manage Buildings</p>
                             </a>
                         </li>
@@ -196,7 +196,7 @@
 
                 
                 <li class="nav-item">
-                    <a href="#" class="nav-link nav-form-questionnaire-report nav-declaration-forms-report nav-queues-report nav-history-logs-report">
+                    <a href="#" class="nav-link nav-patients-report nav-guests-report nav-form-questionnaire-report nav-declaration-forms-report nav-queues-report nav-history-logs-report">
                     <i class="nav-icon fa-solid fa-folder-closed"></i>
                         <p>
                             Reports
@@ -217,33 +217,45 @@
                             </a>
                         </li> -->
                         <li class="nav-item">
-                            <a href="index.php?route=queues-report&buid=<?php echo $defaultBuilding[0] ?? ""; ?>" class="nav-link nav-queues-report" data-bs-toggle="tooltip" data-bs-placement="right" title="Queues Report">
-                                <i class="fa-solid fa-arrow-up-9-1 nav-icon"></i>
-                                <p>Queues</p>
+                            <a href="index.php?route=patients-report" class="nav-link nav-patients-report" data-bs-toggle="tooltip" data-bs-placement="right" title="Patients Personal Data Report">
+                                <i class="fa-solid fa-hospital-user nav-icon"></i>
+                                <p>Patients Data Report</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="index.php?route=form-questionnaire-report" class="nav-link nav-form-questionnaire-report" data-bs-toggle="tooltip" data-bs-placement="right" title="Print Form Questionnaire">
-                                <i class="fa-solid fa-table-list nav-icon"></i>
-                                <p>Form Questionnaire</p>
+                            <a href="index.php?route=guests-report" class="nav-link nav-guests-report" data-bs-toggle="tooltip" data-bs-placement="right" title="Guests Personal Data Report">
+                                <i class="fa-solid fa-person-walking nav-icon"></i>
+                                <p>Guests Data Report</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="index.php?route=declaration-forms-report" class="nav-link nav-declaration-forms-report" data-bs-toggle="tooltip" data-bs-placement="right" title="Declaration Forms Report">
+                            <a href="index.php?route=declaration-forms-report" class="nav-link nav-declaration-forms-report" data-bs-toggle="tooltip" data-bs-placement="right" title="Health Declaration Forms Report">
                                 <i class="fa-solid fa-newspaper nav-icon"></i>
-                                <p>Declaration Forms</p>
+                                <p>Health Dec Report</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="index.php?route=history-logs-report" class="nav-link nav-history-logs-report" data-bs-toggle="tooltip" data-bs-placement="right" title="History Logs Report">
+                            <a href="index.php?route=queues-report&buid=<?php echo $defaultBuilding[0] ?? ""; ?>" class="nav-link nav-queues-report" data-bs-toggle="tooltip" data-bs-placement="right" title="Queuing Report">
+                                <i class="fa-solid fa-arrow-up-9-1 nav-icon"></i>
+                                <p>Queuing Report</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="index.php?route=history-logs-report" class="nav-link nav-history-logs-report" data-bs-toggle="tooltip" data-bs-placement="right" title="History Report">
                                 <i class="fa-solid fa-solid fa-address-book nav-icon"></i>
-                                <p>History Logs</p>
+                                <p>History Report</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="index.php?route=form-questionnaire-report" class="nav-link nav-form-questionnaire-report" data-bs-toggle="tooltip" data-bs-placement="right" title="Form Questionnaire Report">
+                                <i class="fa-solid fa-table-list nav-icon"></i>
+                                <p>Questionnaire Report</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="index.php?route=contact-us-report" class="nav-link nav-contact-us-report" data-bs-toggle="tooltip" data-bs-placement="right" title="Contact Us Report">
                                 <i class="fa-solid fa-phone nav-icon"></i>
-                                <p>Contact Us</p>
+                                <p>Contact Us Report</p>
                             </a>
                         </li>
                     </ul>

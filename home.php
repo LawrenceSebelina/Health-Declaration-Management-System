@@ -120,7 +120,7 @@
                                                             <div class="input-group">       
                                                                 <span class="input-group-text bg-white text-success"><i class="fa-solid fa-user-pen p-2"></i></span>
                                                                 <div class="form-floating">
-                                                                    <input type="text" class="form-control" id="userUsername" name="userUsername" placeholder="Username" required>
+                                                                    <input type="text" class="form-control" id="userUsername" name="userUsername" placeholder="Username" pattern="[a-zA-Z0-9-_.ñ\s]+" title="Must contain letters, numbers, and symbols (e.g. -_.)" required>
 
                                                                     <!-- maxlenght="15" -->
 
@@ -167,14 +167,14 @@
                                                             <div class="input-group">       
                                                                 <span class="input-group-text bg-white text-success"><i class="fa-solid fa-user-pen p-2"></i></span>
                                                                 <div class="form-floating">
-                                                                    <input type="text" class="form-control" id="userUsernameFP" name="userUsernameFP" placeholder="Username" required>
+                                                                    <input type="text" class="form-control" id="userUsernameFP" name="userUsernameFP" placeholder="Username" pattern="[a-zA-Z0-9-_.ñ\s]+" title="Must contain letters, numbers, and symbols (e.g. -_.)" required>
                                                                     <label for="userUsernameFP">Username</label>
                                                                 </div>
                                                             </div>
                                                             <div class="input-group">       
                                                                 <span class="input-group-text bg-white text-success"><i class="fa-solid fa-user-pen p-2"></i></span>
                                                                 <div class="form-floating">
-                                                                    <input type="text" class="form-control" id="userEmailFP" name="userEmailFP" placeholder="Email" required>
+                                                                    <input type="text" class="form-control" id="userEmailFP" name="userEmailFP" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="(e.g. example@email.com)" required>
                                                                     <label for="userEmailFP">Email</label>
                                                                 </div>
                                                             </div>
@@ -208,14 +208,14 @@
                                                             <div class="input-group">       
                                                                 <span class="input-group-text bg-white text-success"><i class="fa-solid fa-lock p-2"></i></span>
                                                                 <div class="form-floating">
-                                                                    <input type="password" class="form-control passwordFP" id="newPasswordFP" name="newPasswordFP" placeholder="Password" required>
+                                                                    <input type="password" class="form-control passwordFP" id="newPasswordFP" name="newPasswordFP" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                                                                     <label for="newPasswordFP">Password</label>
                                                                 </div>
                                                             </div>
                                                             <div class="input-group">       
                                                                 <span class="input-group-text bg-white text-success"><i class="fa-solid fa-lock p-2"></i></span>
                                                                 <div class="form-floating">
-                                                                    <input type="password" class="form-control passwordFP" id="cNewPasswordFP" name="cNewPasswordFP" placeholder="Confirm Password" required>
+                                                                    <input type="password" class="form-control passwordFP" id="cNewPasswordFP" name="cNewPasswordFP" placeholder="Confirm Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                                                                     <label for="cNewPasswordFP">Confirm Password</label>
                                                                 </div>
                                                             </div>

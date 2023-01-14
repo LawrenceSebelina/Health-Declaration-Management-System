@@ -9,7 +9,7 @@
             </script>";
         }
     } else {
-        if (isset($_GET['route']) && !empty($_GET['route']) && $_GET['route'] != "home") {
+        if (isset($_GET['route']) && !empty($_GET['route']) && $_GET['route'] != "home" && $_GET['route'] != "about" && $_GET['route'] != "contact-us" && $_GET['route'] != "location" && $_GET['route'] != "signup" && $_GET['route'] != "verification") {
             echo "<script>
                 window.location.assign('index.php?route=signout');
             </script>";

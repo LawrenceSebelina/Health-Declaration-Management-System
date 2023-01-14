@@ -82,7 +82,7 @@
                                                     <div class="input-group d-flex justify-content-center mb-5">
                                                         <span class="input-group-text bg-success bg-opacity-25"><i class="fa-solid fa-circle-question fa-fw fs-4"></i></span>
                                                         <div class="form-floating">
-                                                            <textarea name="editQuestion" class="form-control" placeholder="Question" required><?php echo $editQuestion ?? ""; ?></textarea>
+                                                            <textarea name="editQuestion" class="form-control" placeholder="Question" pattern="[a-zA-Z0-9-ñ\s]+" title="Must contain letters and numbers" required><?php echo $editQuestion ?? ""; ?></textarea>
                                                             <label for="editQuestion">Question</label>
                                                         </div>
                                                     </div>
@@ -98,7 +98,7 @@
                                                                 </span>
                                                                 <div class="form-floating">
                                                                     <?php if ($editQData['questionType'] == 1) { ?>
-                                                                        <textarea name="editChoices[]" class="form-control" placeholder="Choice" required><?php echo $editQData['choiceText'] ?? ""; ?></textarea>
+                                                                        <textarea name="editChoices[]" class="form-control" placeholder="Choice" pattern="[a-zA-Z0-9-ñ\s]+" title="Must contain letters and numbers" required><?php echo $editQData['choiceText'] ?? ""; ?></textarea>
                                                                     <?php } else { ?>
                                                                         <textarea name="editChoices[]" class="form-control" placeholder="Choice" readonly><?php echo $editQData['choiceText'] ?? ""; ?></textarea>
                                                                     <?php } ?>
@@ -128,7 +128,7 @@
                                                     <div class="input-group d-flex justify-content-center mb-5">
                                                         <span class="input-group-text bg-success bg-opacity-25"><i class="fa-solid fa-circle-question fa-fw fs-4"></i></span>
                                                         <div class="form-floating">
-                                                            <textarea name="question" class="form-control" placeholder="Question" required></textarea>
+                                                            <textarea name="question" class="form-control" placeholder="Question" pattern="[a-zA-Z0-9-ñ\s]+" title="Must contain letters and numbers" required></textarea>
                                                             <label for="question">Question</label>
                                                         </div>
                                                     </div>
@@ -332,7 +332,7 @@
                     var counter = 1;
                 
                     $('#addRow').on('click', function () {
-                        table.row.add([counter, '<div class="input-group d-flex justify-content-center mb-2"><span class="input-group-text bg-success bg-opacity-25"><i class="fa-solid fa-list-check fa-fw fs-4"></i></span><div class="form-floating"><textarea name="choices[]" class="form-control" placeholder="Choice" required></textarea><label for="choice">Choice</label></div></div>', '<div class="d-flex justify-content-center"><button type="button" id="removeRow" class="btn btn-danger btn-flat fs-5"><i class="fa-solid fa-trash-can p-1"></i></button></div>']).draw(false);
+                        table.row.add([counter, '<div class="input-group d-flex justify-content-center mb-2"><span class="input-group-text bg-success bg-opacity-25"><i class="fa-solid fa-list-check fa-fw fs-4"></i></span><div class="form-floating"><textarea name="choices[]" class="form-control" placeholder="Choice" pattern="[a-zA-Z0-9-ñ\s]+" title="Must contain letters and numbers" required></textarea><label for="choice">Choice</label></div></div>', '<div class="d-flex justify-content-center"><button type="button" id="removeRow" class="btn btn-danger btn-flat fs-5"><i class="fa-solid fa-trash-can p-1"></i></button></div>']).draw(false);
                 
                         counter++;
                     });

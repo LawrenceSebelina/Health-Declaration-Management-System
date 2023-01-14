@@ -85,7 +85,7 @@
                                                         <div class="input-group">       
                                                             <span class="input-group-text bg-success text-light"><i class="fa-solid fa-lock p-2"></i></span>
                                                             <div class="form-floating adminCurPassword">
-                                                                <input type="password" class="form-control" id="adminCurPassword" name="adminCurPassword" placeholder="Password">
+                                                                <input type="password" class="form-control" id="adminCurPassword" name="adminCurPassword" placeholder="Password" required>
                                                                 <i class="fa-solid fa-eye"></i>
                                                                 <label for="adminCurPassword">Current Password</label>
                                                             </div>
@@ -95,7 +95,7 @@
                                                         <div class="input-group">       
                                                             <span class="input-group-text bg-success text-light"><i class="fa-solid fa-lock p-2"></i></span>
                                                             <div class="form-floating adminPassword">
-                                                                <input type="password" class="form-control" id="adminPassword" name="adminPassword" placeholder="Confirm Password">
+                                                                <input type="password" class="form-control" id="adminPassword" name="adminPassword" placeholder="New Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                                                                 <i class="fa-solid fa-eye"></i>
                                                                 <label for="adminPassword">New Password</label>
                                                             </div>
@@ -105,7 +105,7 @@
                                                         <div class="input-group">       
                                                             <span class="input-group-text bg-success text-light"><i class="fa-solid fa-lock p-2"></i></span>
                                                             <div class="form-floating adminCPassword">
-                                                                <input type="password" class="form-control" id="adminCPassword" name="adminCPassword" placeholder="Confirm Password">
+                                                                <input type="password" class="form-control" id="adminCPassword" name="adminCPassword" placeholder="Confirm Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                                                                 <i class="fa-solid fa-eye"></i>
                                                                 <label for="adminCPassword">Confirm New Password</label>
                                                             </div>
@@ -163,7 +163,7 @@
                                                         <div class="input-group">       
                                                             <span class="input-group-text bg-success text-light"><i class="fa-solid fa-user-pen p-2"></i></span>
                                                             <div class="form-floating">
-                                                                <input type="text" class="form-control" id="adminFirstName" name="adminFirstName" placeholder="First Name" value="<?php echo $adminFName ?? ""; ?>">
+                                                                <input type="text" class="form-control" id="adminFirstName" name="adminFirstName" placeholder="First Name" value="<?php echo $adminFName ?? ""; ?>" pattern="[a-zA-Z0-9-ñ\s]+" title="Must contain letters and numbers">
                                                                 <label for="adminFirstName">First Name</label>
                                                             </div>
                                                         </div>
@@ -172,7 +172,7 @@
                                                         <div class="input-group">       
                                                             <span class="input-group-text bg-success text-light"><i class="fa-solid fa-user-pen p-2"></i></span>
                                                             <div class="form-floating">
-                                                                <input type="text" class="form-control" id="adminLastName" name="adminLastName" placeholder="Last Name" value="<?php echo $adminLName ?? ""; ?>">
+                                                                <input type="text" class="form-control" id="adminLastName" name="adminLastName" placeholder="Last Name" value="<?php echo $adminLName ?? ""; ?>" pattern="[a-zA-Z0-9-ñ\s]+" title="Must contain letters and numbers">
                                                                 <label for="adminLastName">Last Name</label>
                                                             </div>
                                                         </div>
@@ -181,7 +181,7 @@
                                                         <div class="input-group">       
                                                             <span class="input-group-text bg-success text-light"><i class="fa-solid fa-user-pen p-2"></i></span>
                                                             <div class="form-floating">
-                                                                <input type="text" class="form-control" id="adminMiddle" name="adminMiddle" placeholder="M.I." value="<?php echo $adminMI ?? ""; ?>">
+                                                                <input type="text" class="form-control" id="adminMiddle" name="adminMiddle" placeholder="M.I." value="<?php echo $adminMI ?? ""; ?>" pattern="[a-zA-Z-ñ\s]{1}" title="Must contain one letter">
                                                                 <label for="adminMiddle">M.I.</label>
                                                             </div>
                                                         </div>
@@ -190,7 +190,7 @@
                                                         <div class="input-group">       
                                                             <span class="input-group-text bg-success text-light"><i class="fa-solid fa-house p-2"></i></span>
                                                             <div class="form-floating">
-                                                                <input type="text" class="form-control" id="adminAddress" name="adminAddress" placeholder="Address" value="<?php echo $adminAddress ?? ""; ?>">
+                                                                <input type="text" class="form-control" id="adminAddress" name="adminAddress" placeholder="Address" value="<?php echo $adminAddress ?? ""; ?>" pattern="[a-zA-Z0-9-_.,()ñ\s]+" title="Must contain letters, numbers, and symbols (e.g. -_.,())">
                                                                 <label for="adminAddress">Address</label>
                                                             </div>
                                                         </div>
@@ -208,7 +208,7 @@
                                                         <div class="input-group">       
                                                             <span class="input-group-text bg-success text-light"><i class="fa-solid fa-arrow-up-1-9 p-2"></i></span>
                                                             <div class="form-floating">
-                                                                <input type="text" class="form-control" id="adminAge" name="adminAge" placeholder="Age" value="<?php echo $adminAge ?? ""; ?>">
+                                                                <input type="text" class="form-control" id="adminAge" name="adminAge" placeholder="Age" value="<?php echo $adminAge ?? ""; ?>" pattern="[0-9]+" title="Must contain numbers">
                                                                 <label for="adminAge">Age</label>
                                                             </div>
                                                         </div>
@@ -230,7 +230,8 @@
                                                         <div class="input-group">       
                                                             <span class="input-group-text bg-success text-light"><i class="fa-solid fa-phone p-2"></i></span>
                                                             <div class="form-floating">
-                                                                <input type="text" class="form-control" id="adminContactNo" name="adminContactNo" placeholder="Contact No.:" value="<?php echo $adminContact ?? ""; ?>">
+                                                                <input type="text" class="form-control" id="adminContactNo" name="adminContactNo" placeholder="Contact No.:" value="<?php echo $adminContact ?? ""; ?>" pattern="[0-9-_.()]+" title="Must contain numbers and symbols (e.g. -_.())">
+                                                            <label for="updateContactNo">
                                                                 <label for="adminContactNo">Contact No.:</label>
                                                             </div>
                                                         </div>
@@ -239,7 +240,7 @@
                                                         <div class="input-group">       
                                                             <span class="input-group-text bg-success text-light"><i class="fa-solid fa-envelope p-2"></i></span>
                                                             <div class="form-floating">
-                                                                <input type="text" class="form-control" id="adminEmail" name="adminEmail" placeholder="Email" value="<?php echo $adminEmail ?? ""; ?>">
+                                                                <input type="text" class="form-control" id="adminEmail" name="adminEmail" placeholder="Email" value="<?php echo $adminEmail ?? ""; ?>" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="(e.g. example@email.com)">
                                                                 <label for="adminEmail">Email</label>
                                                             </div>
                                                         </div>

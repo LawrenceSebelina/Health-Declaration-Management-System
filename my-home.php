@@ -163,7 +163,7 @@
                                             <div class="input-group">       
                                                 <span class="input-group-text bg-light text-success"><i class="fa-solid fa-thermometer p-2"></i></span>
                                                 <div class="form-floating">
-                                                    <input type="text" class="form-control" id="userTemperature" name="userTemperature" placeholder="Temperature:">
+                                                    <input type="text" class="form-control" id="userTemperature" name="userTemperature" placeholder="Temperature:" pattern="[0-9-.]+" title="Must contain numbers and symbols (e.g. .)" required>
                                                     <label for="userTemperature">Temperature</label>
                                                 </div>
                                             </div>

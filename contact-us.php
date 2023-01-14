@@ -18,7 +18,7 @@
                                 <div class="input-group">       
                                     <span class="input-group-text bg-success text-light"><i class="fa-solid fa-user-pen p-2"></i></span>
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="userFirstName" name="userFirstName" placeholder="First Name">
+                                        <input type="text" class="form-control" id="userFirstName" name="userFirstName" placeholder="First Name" pattern="[a-zA-Z0-9-ñ\s]+" title="Must contain letters and numbers" required>
                                         <label for="userFirstName">First Name</label>
                                     </div>
                                 </div>
@@ -27,7 +27,7 @@
                                 <div class="input-group">       
                                     <span class="input-group-text bg-success text-light"><i class="fa-solid fa-user-pen p-2"></i></span>
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="userLastName" name="userLastName" placeholder="Last Name">
+                                        <input type="text" class="form-control" id="userLastName" name="userLastName" placeholder="Last Name" pattern="[a-zA-Z0-9-ñ\s]+" title="Must contain letters and numbers" required>
                                         <label for="userLastName">Last Name</label>
                                     </div>
                                 </div>
@@ -36,7 +36,7 @@
                                 <div class="input-group">       
                                     <span class="input-group-text bg-success text-light"><i class="fa-solid fa-phone p-2"></i></span>
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="userContact" name="userContact" placeholder="Contact">
+                                        <input type="text" class="form-control" id="userContact" name="userContact" placeholder="Contact" pattern="[0-9-_.()]+" title="Must contain numbers and symbols (e.g. -_.())" required>
                                         <label for="userContact">Contact</label>
                                     </div>
                                 </div>
@@ -45,7 +45,7 @@
                                 <div class="input-group">       
                                     <span class="input-group-text bg-success text-light"><i class="fa-solid fa-envelope-circle-check p-2"></i></span>
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="userEmail" name="userEmail" placeholder="Email">
+                                        <input type="text" class="form-control" id="userEmail" name="userEmail" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="(e.g. example@email.com)" required>
                                         <label for="userEmail">Email</label>
                                     </div>
                                 </div>

@@ -327,7 +327,7 @@
 
         public function signIn($userUsername, $userPassword, $myMab) {
 
-            if (!empty($userUsername) && !empty($userPassword)){
+            if (!empty($userUsername) || !empty($userPassword)){
                 if (!empty($userUsername)) {
                     if (!empty($userPassword)) {
 
@@ -1708,45 +1708,6 @@
     
         }
 
-        // public function getQueueMab1() {
-
-        //     $connection = $this->connect();
-        //     $stmt = $connection->prepare("SELECT queueing.*, declarations.*, users.* FROM queueing LEFT JOIN declarations ON queueing.declarationUniqueId = declarations.declarationUniqueId LEFT JOIN users ON declarations.userUniqueId = users.userUniqueId WHERE queueBuilding = ? ORDER BY queueNo DESC");
-        //     $stmt->execute([1]);
-        //     $datas = $stmt->fetchAll(); 
-        //     $datacount = $stmt->rowCount();
-           
-        //     if($datacount > 0) {
-        //         foreach ($datas as $data) { 
-        //             $actions = 
-        //             '<div class="justify-content-center hstack gap-2">
-        //                 <a class="btn btn-success btn-flat fs-5" href="index.php?route=mab-1&view='.$data['declarationUniqueId'].'" role="button">
-        //                     <i class="fa-solid fa-eye p-1"></i>
-        //                 </a>
-                        
-        //             </div>';
-
-        //             // <button type="button" class="btn btn-danger btn-flat fs-5 deleteFBtn">
-        //             //     <i class="fa-solid fa-trash-can p-1"></i>
-        //             // </button>
-
-        //             $arrayDatas[] = array(
-        //                 "declarationId" => $data['declarationId'],
-        //                 "userFullName" => $data['userFName'] . " " . $data['userLName'],
-        //                 "declarationDateCreated" => date('m/d/Y h:i a', strtotime($data['declarationDateCreated'])),
-        //                 "action" => $actions
-        //             );
-        //         }
-                
-        //     } 
-            
-        //     $json_data['data'] = $arrayDatas ?? [];
-        //     return $json_data;
-
-        //     $this->disconnect(); 
-    
-        // }
-
         public function getQueues($buildingUniqueId) {
 
             $connection = $this->connect();
@@ -1856,7 +1817,7 @@
             $datas = $stmt->fetchAll(); 
             $datacount = $stmt->rowCount();
            
-            if($datacount > 0) {
+            if ($datacount > 0) {
                 foreach ($datas as $data) { 
                     $actions = 
                     '<div class="justify-content-center hstack gap-2">
@@ -1893,11 +1854,75 @@
             $datas = $stmt->fetchAll(); 
             $datacount = $stmt->rowCount();
            
-            if($datacount > 0) {
+            if ($datacount > 0) {
                 return $datas;
             } else {
                 return false;
             }
+        }
+
+        public function getPositiveHealthDecFormsDash() {
+
+            $connection = $this->connect();
+            $stmt = $connection->prepare("SELECT declarations.*, users.* FROM declarations LEFT JOIN users ON declarations.userUniqueId = users.userUniqueId WHERE declarationDel = ? AND declarationResult = ? ORDER BY declarationId DESC");
+            $stmt->execute([0, "Positive"]);
+            $datas = $stmt->fetchAll(); 
+            $datacount = $stmt->rowCount();
+            $positiveCounter = $datacount;
+            
+            if ($datacount > 0) {
+                foreach ($datas as $data) { 
+
+                    $arrayDatas[] = array(
+                        "declarationId" => $positiveCounter,
+                        "userFullName" => $data['userFName'] . " " .  $data['userLName'],
+                        "userType" => $data['userType'],
+                        "declarationResult" => $data['declarationResult'],
+                        "declarationDateCreated" => date('m/d/Y h:i a', strtotime($data['declarationDateCreated'])),
+                        "userAddress" => $data['userAddress']
+                    );
+
+                    $positiveCounter--;
+                }
+                
+            } 
+            
+            $json_data['data'] = $arrayDatas ?? [];
+            return $json_data;
+
+            $this->disconnect(); 
+        }
+
+        public function getNegativeHealthDecFormsDash() {
+
+            $connection = $this->connect();
+            $stmt = $connection->prepare("SELECT declarations.*, users.* FROM declarations LEFT JOIN users ON declarations.userUniqueId = users.userUniqueId WHERE declarationDel = ? AND declarationResult = ? ORDER BY declarationId DESC");
+            $stmt->execute([0, "Negative"]);
+            $datas = $stmt->fetchAll(); 
+            $datacount = $stmt->rowCount();
+            $positiveCounter = $datacount;
+            
+            if ($datacount > 0) {
+                foreach ($datas as $data) { 
+
+                    $arrayDatas[] = array(
+                        "declarationId" => $positiveCounter,
+                        "userFullName" => $data['userFName'] . " " .  $data['userLName'],
+                        "userType" => $data['userType'],
+                        "declarationResult" => $data['declarationResult'],
+                        "declarationDateCreated" => date('m/d/Y h:i a', strtotime($data['declarationDateCreated'])),
+                        "userAddress" => $data['userAddress']
+                    );
+
+                    $positiveCounter--;
+                }
+                
+            } 
+            
+            $json_data['data'] = $arrayDatas ?? [];
+            return $json_data;
+
+            $this->disconnect(); 
         }
 
         public function getHealthDecFormsSevenDaysDash() {
@@ -1908,7 +1933,7 @@
             $datas = $stmt->fetchAll(); 
             $datacount = $stmt->rowCount();
            
-            if($datacount > 0) {
+            if ($datacount > 0) {
                 return $datas;
             } else {
                 return false;
@@ -1923,7 +1948,7 @@
             $datas = $stmt->fetchAll(); 
             $datacount = $stmt->rowCount();
            
-            if($datacount > 0) {
+            if ($datacount > 0) {
                 return $datas;
             } else {
                 return false;
@@ -1938,11 +1963,96 @@
             $datas = $stmt->fetchAll(); 
             $datacount = $stmt->rowCount();
            
-            if($datacount > 0) {
+            if ($datacount > 0) {
                 return $datas;
             } else {
                 return false;
             }
+        }
+
+        public function getPatientsGuestsDataReport($userUniqueId) {
+
+            $connection = $this->connect();
+            $stmt = $connection->prepare("SELECT * FROM users WHERE userUniqueId = ?");
+            $stmt->execute([$userUniqueId]);
+            $datas = $stmt->fetchAll(); 
+            $datacount = $stmt->rowCount();
+           
+            if ($datacount > 0) {
+                return $datas;
+            } else {
+                return false;
+            }
+        }
+
+        public function getPatientsDataReport() {
+
+            $connection = $this->connect();
+            $stmt = $connection->prepare("SELECT * FROM users WHERE userDel = ? AND userType = ? ORDER BY userId DESC");
+            $stmt->execute([0, "Patient"]);
+            $datas = $stmt->fetchAll(); 
+            $datacount = $stmt->rowCount();
+           
+            if($datacount > 0) {
+                foreach ($datas as $data) { 
+                    $actions = 
+                    '<div class="justify-content-center hstack gap-2">
+                        <a class="btn btn-success btn-flat fs-5" href="index.php?route=patients-report&view='.$data['userUniqueId'].'" role="button" data-bs-toggle="tooltip" data-bs-placement="bottom" title="View More Patient Data" onmouseover="mouseOver()">
+                            <i class="fa-solid fa-eye p-1"></i>
+                        </a>
+                    </div>';
+
+                    $arrayDatas[] = array(
+                        "userId" => $data['userId'],
+                        "userFullName" => $data['userFName'] . " " . $data['userLName'],
+                        "userDateCreated" => date('m/d/Y h:i a', strtotime($data['userDateCreated'])),
+                        "actions" => $actions
+                    );
+                }
+                
+            } 
+            
+            $json_data['data'] = $arrayDatas ?? [];
+
+            return $json_data;
+
+            $this->disconnect(); 
+    
+        }
+
+        public function getGuestsDataReport() {
+
+            $connection = $this->connect();
+            $stmt = $connection->prepare("SELECT * FROM users WHERE userDel = ? AND userType = ? ORDER BY userId DESC");
+            $stmt->execute([0, "Guest"]);
+            $datas = $stmt->fetchAll(); 
+            $datacount = $stmt->rowCount();
+           
+            if($datacount > 0) {
+                foreach ($datas as $data) { 
+                    $actions = 
+                    '<div class="justify-content-center hstack gap-2">
+                        <a class="btn btn-success btn-flat fs-5" href="index.php?route=patients-report&view='.$data['userUniqueId'].'" role="button" data-bs-toggle="tooltip" data-bs-placement="bottom" title="View More Patient Data" onmouseover="mouseOver()">
+                            <i class="fa-solid fa-eye p-1"></i>
+                        </a>
+                    </div>';
+
+                    $arrayDatas[] = array(
+                        "userId" => $data['userId'],
+                        "userFullName" => $data['userFName'] . " " . $data['userLName'],
+                        "userDateCreated" => date('m/d/Y h:i a', strtotime($data['userDateCreated'])),
+                        "actions" => $actions
+                    );
+                }
+                
+            } 
+            
+            $json_data['data'] = $arrayDatas ?? [];
+
+            return $json_data;
+
+            $this->disconnect(); 
+    
         }
 
     }

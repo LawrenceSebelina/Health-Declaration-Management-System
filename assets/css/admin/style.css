@@ -13,6 +13,11 @@
     color: #ffffff;
 }
 
+.negativeHDFTable .pagination .page-item.active .page-link { 
+    background-color: #dc354654; 
+    color: #ffffff;
+}
+
 .pagination .page-item .page-link { 
     color: #000000;
 }

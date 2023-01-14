@@ -21,7 +21,13 @@
                             <li class="breadcrumb-item active">Settings</li>
                         </ol>
                     </nav>
-                    <h2 class="text-center text-black text-uppercase mb-3">Settings<hr></h2>
+                    <h2 class="text-center text-black text-uppercase mb-3">
+                        <?php if (isset($_GET['route']) && !empty($_GET['route']) && $_GET['route'] == "my-settings" && isset($_GET['action']) && !empty($_GET['action']) && $_GET['action'] == "my-hdf") { ?>
+                            My Health Declaration Form<hr>
+                        <?php } else { ?>
+                            Settings<hr>
+                        <?php } ?>
+                    </h2>
 
                     <div class="p-2">
                         <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
@@ -286,7 +292,7 @@
                                                     <div class="input-group">       
                                                         <span class="input-group-text bg-success text-light"><i class="fa-solid fa-lock p-2"></i></span>
                                                         <div class="form-floating userCurPassword">
-                                                            <input type="password" class="form-control" id="userCurPassword" name="userCurPassword" placeholder="Password">
+                                                            <input type="password" class="form-control" id="userCurPassword" name="userCurPassword" placeholder="Password" required>
                                                             <i class="fa-solid fa-eye"></i>
                                                             <label for="userCurPassword">Current Password</label>
                                                         </div>
@@ -296,7 +302,7 @@
                                                     <div class="input-group">       
                                                         <span class="input-group-text bg-success text-light"><i class="fa-solid fa-lock p-2"></i></span>
                                                         <div class="form-floating userPassword">
-                                                            <input type="password" class="form-control" id="userPassword" name="userPassword" placeholder="Confirm Password">
+                                                            <input type="password" class="form-control" id="userPassword" name="userPassword" placeholder="New Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                                                             <i class="fa-solid fa-eye"></i>
                                                             <label for="userPassword">New Password</label>
                                                         </div>
@@ -306,7 +312,7 @@
                                                     <div class="input-group">       
                                                         <span class="input-group-text bg-success text-light"><i class="fa-solid fa-lock p-2"></i></span>
                                                         <div class="form-floating userCPassword">
-                                                            <input type="password" class="form-control" id="userCPassword" name="userCPassword" placeholder="Confirm Password">
+                                                            <input type="password" class="form-control" id="userCPassword" name="userCPassword" placeholder="Confirm Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                                                             <i class="fa-solid fa-eye"></i>
                                                             <label for="userCPassword">Confirm New Password</label>
                                                         </div>
@@ -335,7 +341,7 @@
                                                     <div class="input-group">       
                                                         <span class="input-group-text bg-success text-light"><i class="fa-solid fa-user-pen p-2"></i></span>
                                                         <div class="form-floating">
-                                                            <input type="text" class="form-control" id="updateUserFName" name="updateUserFName" placeholder="First Name" value="<?php echo $info['userFName'] ?? ""; ?>">
+                                                            <input type="text" class="form-control" id="updateUserFName" name="updateUserFName" placeholder="First Name" value="<?php echo $info['userFName'] ?? ""; ?>" pattern="[a-zA-Z0-9-ñ\s]+" title="Must contain letters and numbers">
                                                             <label for="updateUserFName">First Name</label>
                                                         </div>
                                                     </div>
@@ -344,7 +350,7 @@
                                                     <div class="input-group">       
                                                         <span class="input-group-text bg-success text-light"><i class="fa-solid fa-user-pen p-2"></i></span>
                                                         <div class="form-floating">
-                                                            <input type="text" class="form-control" id="updateUserLName" name="updateUserLName" placeholder="Last Name" value="<?php echo $info['userLName'] ?? ""; ?>">
+                                                            <input type="text" class="form-control" id="updateUserLName" name="updateUserLName" placeholder="Last Name" value="<?php echo $info['userLName'] ?? ""; ?>" pattern="[a-zA-Z0-9-ñ\s]+" title="Must contain letters and numbers">
                                                             <label for="updateUserLName">Last Name</label>
                                                         </div>
                                                     </div>
@@ -353,7 +359,7 @@
                                                     <div class="input-group">       
                                                         <span class="input-group-text bg-success text-light"><i class="fa-solid fa-user-pen p-2"></i></span>
                                                         <div class="form-floating">
-                                                            <input type="text" class="form-control" id="updateUserMI" name="updateUserMI" placeholder="M.I." value="<?php echo $info['userMI'] ?? ""; ?>">
+                                                            <input type="text" class="form-control" id="updateUserMI" name="updateUserMI" placeholder="M.I." value="<?php echo $info['userMI'] ?? ""; ?>" pattern="[a-zA-Z-ñ\s]{1}" title="Must contain one letter">
                                                             <label for="updateUserMI">M.I.</label>
                                                         </div>
                                                     </div>
@@ -362,7 +368,7 @@
                                                     <div class="input-group">       
                                                         <span class="input-group-text bg-success text-light"><i class="fa-solid fa-house p-2"></i></span>
                                                         <div class="form-floating">
-                                                            <input type="text" class="form-control" id="updateUserAddress" name="updateUserAddress" placeholder="Address" value="<?php echo $info['userAddress'] ?? ""; ?>">
+                                                            <input type="text" class="form-control" id="updateUserAddress" name="updateUserAddress" placeholder="Address" value="<?php echo $info['userAddress'] ?? ""; ?>" pattern="[a-zA-Z0-9-_.,()ñ\s]+" title="Must contain letters, numbers, and symbols (e.g. -_.,())">
                                                             <label for="updateUserAddress">Address</label>
                                                         </div>
                                                     </div>
@@ -380,7 +386,7 @@
                                                     <div class="input-group">       
                                                         <span class="input-group-text bg-success text-light"><i class="fa-solid fa-arrow-up-1-9 p-2"></i></span>
                                                         <div class="form-floating">
-                                                            <input type="text" class="form-control" id="updateUserAge" name="updateUserAge" placeholder="Age" value="<?php echo $info['userAge'] ?? ""; ?>">
+                                                            <input type="text" class="form-control" id="updateUserAge" name="updateUserAge" placeholder="Age" value="<?php echo $info['userAge'] ?? ""; ?>" pattern="[0-9]+" title="Must contain numbers">
                                                             <label for="updateUserAge">Age</label>
                                                         </div>
                                                     </div>
@@ -402,7 +408,7 @@
                                                     <div class="input-group">       
                                                         <span class="input-group-text bg-success text-light"><i class="fa-solid fa-phone p-2"></i></span>
                                                         <div class="form-floating">
-                                                            <input type="text" class="form-control" id="updateContactNo" name="updateContactNo" placeholder="Contact No.:" value="<?php echo $info['userContact'] ?? ""; ?>">
+                                                            <input type="text" class="form-control" id="updateContactNo" name="updateContactNo" placeholder="Contact No.:" value="<?php echo $info['userContact'] ?? ""; ?>" pattern="[0-9-_.()]+" title="Must contain numbers and symbols (e.g. -_.())">
                                                             <label for="updateContactNo">Contact No.:</label>
                                                         </div>
                                                     </div>
@@ -411,7 +417,7 @@
                                                     <div class="input-group">       
                                                         <span class="input-group-text bg-success text-light"><i class="fa-solid fa-envelope p-2"></i></span>
                                                         <div class="form-floating">
-                                                            <input type="text" class="form-control" id="updateUserEmail" name="updateUserEmail" placeholder="Email" value="<?php echo $info['userEmail'] ?? ""; ?>">
+                                                            <input type="text" class="form-control" id="updateUserEmail" name="updateUserEmail" placeholder="Email" value="<?php echo $info['userEmail'] ?? ""; ?>" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="(e.g. example@email.com)">
                                                             <label for="updateUserEmail">Email</label>
                                                         </div>
                                                     </div>

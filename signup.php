@@ -46,7 +46,7 @@
                                     <div class="input-group">       
                                         <span class="input-group-text bg-success text-light"><i class="fa-solid fa-user-pen p-2"></i></span>
                                         <div class="form-floating">
-                                            <input type="text" class="form-control" id="userFirstName" name="userFirstName" placeholder="First Name">
+                                            <input type="text" class="form-control" id="userFirstName" name="userFirstName" placeholder="First Name" pattern="[a-zA-Z0-9-ñ\s]+" title="Must contain letters and numbers" required>
                                             <label for="userFirstName">First Name</label>
                                         </div>
                                     </div>
@@ -55,7 +55,7 @@
                                     <div class="input-group">       
                                         <span class="input-group-text bg-success text-light"><i class="fa-solid fa-user-pen p-2"></i></span>
                                         <div class="form-floating">
-                                            <input type="text" class="form-control" id="userLastName" name="userLastName" placeholder="Last Name">
+                                            <input type="text" class="form-control" id="userLastName" name="userLastName" placeholder="Last Name" pattern="[a-zA-Z0-9-ñ\s]+" title="Must contain letters and numbers" required>
                                             <label for="userLastName">Last Name</label>
                                         </div>
                                     </div>
@@ -64,7 +64,7 @@
                                     <div class="input-group">       
                                         <span class="input-group-text bg-success text-light"><i class="fa-solid fa-user-pen p-2"></i></span>
                                         <div class="form-floating">
-                                            <input type="text" class="form-control" id="userMiddle" name="userMiddle" placeholder="M.I.">
+                                            <input type="text" class="form-control" id="userMiddle" name="userMiddle" placeholder="M.I." pattern="[a-zA-Z-ñ\s]{1}" title="Must contain one letter" required>
                                             <label for="userMiddle">M.I.</label>
                                         </div>
                                     </div>
@@ -73,7 +73,7 @@
                                     <div class="input-group">       
                                         <span class="input-group-text bg-success text-light"><i class="fa-solid fa-house p-2"></i></span>
                                         <div class="form-floating">
-                                            <input type="text" class="form-control" id="userAddress" name="userAddress" placeholder="Address">
+                                            <input type="text" class="form-control" id="userAddress" name="userAddress" placeholder="Address" pattern="[a-zA-Z0-9-_.,()ñ\s]+" title="Must contain letters, numbers, and symbols (e.g. -_.,())" required>
                                             <label for="userAddress">Address</label>
                                         </div>
                                     </div>
@@ -82,7 +82,7 @@
                                     <div class="input-group">       
                                         <span class="input-group-text bg-success text-light"><i class="fa-solid fa-calendar-days p-2"></i></span>
                                         <div class="form-floating">
-                                            <input type="date" class="form-control" max="<?= date('Y-m-d'); ?>" id="userBirthday" name="userBirthday" placeholder="Birthday">
+                                            <input type="date" class="form-control" max="<?= date('Y-m-d'); ?>" id="userBirthday" name="userBirthday" placeholder="Birthday" required>
                                             <label for="userBirthday">Birthday</label>
                                         </div>
                                     </div>
@@ -91,7 +91,7 @@
                                     <div class="input-group">       
                                         <span class="input-group-text bg-success text-light"><i class="fa-solid fa-arrow-up-1-9 p-2"></i></span>
                                         <div class="form-floating">
-                                            <input type="text" class="form-control" id="userAge" name="userAge" placeholder="Age">
+                                            <input type="text" class="form-control" id="userAge" name="userAge" placeholder="Age" pattern="[0-9]+" title="Must contain numbers" required>
                                             <label for="userAge">Age</label>
                                         </div>
                                     </div>
@@ -100,7 +100,7 @@
                                     <div class="input-group">       
                                         <span class="input-group-text bg-success text-light"><i class="fa-solid fa-venus-mars p-2"></i></span>
                                         <div class="form-floating">
-                                            <select class="form-select" style="height: 3.6rem;" id="userGender" name="userGender">
+                                            <select class="form-select" style="height: 3.6rem;" id="userGender" name="userGender" required>
                                                 <option value="Male">Male</option>
                                                 <option value="Female">Female</option>
                                             </select>
@@ -113,7 +113,7 @@
                                     <div class="input-group">       
                                         <span class="input-group-text bg-success text-light"><i class="fa-solid fa-phone p-2"></i></span>
                                         <div class="form-floating">
-                                            <input type="text" class="form-control" id="userContactNo" name="userContactNo" placeholder="Contact No.:">
+                                            <input type="text" class="form-control" id="userContactNo" name="userContactNo" placeholder="Contact No.:" pattern="[0-9-_.()]+" title="Must contain numbers and symbols (e.g. -_.())" required>
                                             <label for="userContactNo">Contact No.:</label>
                                         </div>
                                     </div>
@@ -122,7 +122,7 @@
                                     <div class="input-group">       
                                         <span class="input-group-text bg-success text-light"><i class="fa-solid fa-envelope p-2"></i></span>
                                         <div class="form-floating">
-                                            <input type="text" class="form-control" id="userEmail" name="userEmail" placeholder="Email">
+                                            <input type="text" class="form-control" id="userEmail" name="userEmail" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="(e.g. example@email.com)" required>
                                             <label for="userEmail">Email</label>
                                         </div>
                                     </div>
@@ -132,7 +132,7 @@
                                     <div class="input-group">       
                                         <span class="input-group-text bg-success text-light"><i class="fa-solid fa-user-pen p-2"></i></span>
                                         <div class="form-floating">
-                                            <input type="text" class="form-control" id="userUsername" name="userUsername" placeholder="Username">
+                                            <input type="text" class="form-control" id="userUsername" name="userUsername" placeholder="Username" pattern="[a-zA-Z0-9-_.ñ\s]+" title="Must contain letters, numbers, and symbols (e.g. -_.)" required>
                                             <label for="userUsername">Username</label>
                                         </div>
                                     </div>
@@ -141,7 +141,7 @@
                                     <div class="input-group">       
                                         <span class="input-group-text bg-success text-light"><i class="fa-solid fa-lock p-2"></i></span>
                                         <div class="form-floating userPassword">
-                                            <input type="password" class="form-control" id="userPassword" name="userPassword" placeholder="Password">
+                                            <input type="password" class="form-control" id="userPassword" name="userPassword" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                                             <i class="fa-solid fa-eye"></i>
                                             <label for="userPassword">Password</label>
                                         </div>
@@ -151,7 +151,7 @@
                                     <div class="input-group">       
                                         <span class="input-group-text bg-success text-light"><i class="fa-solid fa-lock p-2"></i></span>
                                         <div class="form-floating userCPassword">
-                                            <input type="password" class="form-control" id="userCPassword" name="userCPassword" placeholder="Confirm Password">
+                                            <input type="password" class="form-control" id="userCPassword" name="userCPassword" placeholder="Confirm Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                                             <i class="fa-solid fa-eye"></i>
                                             <label for="userCPassword">Confirm Password</label>
                                         </div>

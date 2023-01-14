@@ -100,7 +100,7 @@
                                                                     <div class="input-group">       
                                                                         <span class="input-group-text bg-success text-success"><i class="fa-solid fa-hospital p-2"></i></span>
                                                                         <div class="form-floating">
-                                                                            <input type="text" class="form-control" id="buildingName" name="buildingName" placeholder="Building Name:">
+                                                                            <input type="text" class="form-control" id="buildingName" name="buildingName" placeholder="Building Name:" pattern="[a-zA-Z0-9-ñ\s]+" title="Must contain letters and numbers" required>
                                                                             <label for="buildingName">Building Name</label>
                                                                         </div>
                                                                     </div>

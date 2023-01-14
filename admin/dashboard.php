@@ -3,6 +3,19 @@
 <head>
     <?php require_once('../assets/components/admin/head.php'); ?>
     <title>Dashboard</title>
+	<style>
+		.nav-link.positive:is(:hover, :focus) {
+			background-color: #00a65a54;
+			cursor: pointer;
+			color: white;
+		}
+
+		.nav-link.negative:is(:hover, :focus) {
+			background-color: #f5695454;
+			cursor: pointer;
+			color: white;
+		}
+	</style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed sidebar-collapse layout-navbar-fixed"> <!-- sidebar-collapse layout-fixed -->
     <div class="wrapper">
@@ -174,18 +187,18 @@
                                                 </div>
                                                 <div class="card-footer p-0 shadow">
                                                     <ul class="nav nav-pills flex-column">
-                                                        <li class="nav-item">
-                                                            <a class="nav-link text-black fw-bold">
-                                                                Positive
+                                                        <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="left" title="View all Positive Results">
+                                                            <a class="nav-link positive text-black fw-bold" data-bs-toggle="modal" data-bs-target="#positiveHealthDecForms">
+                                                                View Positive
                                                                 <span class="float-right text-success">
                                                                     <i class="fa-solid fa-plus text-sm"></i>
                                                                     <?php echo $healthDecPositiveCounterPie ?? ""; ?>
                                                                 </span>
                                                             </a>
                                                         </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link text-black fw-bold">
-                                                                Negative
+                                                        <li class="nav-item" data-bs-toggle="tooltip" data-bs-placement="left" title="View all Negative Results">
+                                                            <a class="nav-link negative text-black fw-bold" data-bs-toggle="modal" data-bs-target="#negativeHealthDecForms">
+                                                                View Negative
                                                                 <span class="float-right text-danger">
                                                                     <i class="fa-solid fa-minus text-sm"></i> 
                                                                     <?php echo $healthDecNegativeCounterPie ?? ""; ?>
@@ -194,6 +207,72 @@
                                                         </li>
                                                     </ul>
                                                 </div>
+
+												<!-- Modals -->
+												<div class="modal fade" id="positiveHealthDecForms" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+													<div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
+														<div class="modal-content border border-success border-4">
+															<div class="modal-header alert alert-success d-flex align-items-center">
+																<i class="fa-solid fa-plus fs-5 me-2"></i>
+																<strong>Health Declaration Forms (Positive Result)</strong>
+																<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+															</div>
+															<div class="modal-body text-black">
+																<table id="positiveHDFTable" class="table table-bordered" style="width:100%">
+																	<thead class="table-dark">
+																		<tr>
+																			<th></th>
+																			<th>#</th>
+																			<th>Name</th>
+																			<th>Type</th>
+																			<th>Result</th>
+																			<th>Date</th>
+																		</tr>
+																	</thead>
+																	<tbody>
+																		
+																	</tbody>
+																</table>
+															</div>
+															<div class="modal-footer">
+																<button type="button" class="btn btn-secondary btn-flat" data-bs-dismiss="modal"><i class="fa-solid fa-circle-xmark me-2"></i>Close</button>
+															</div> 
+														</div>
+													</div>
+												</div>
+
+												<div class="modal fade" id="negativeHealthDecForms" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+													<div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
+														<div class="modal-content border border-danger border-4">
+															<div class="modal-header alert alert-danger d-flex align-items-center">
+																<i class="fa-solid fa-minus fs-5 me-2"></i>
+																<strong>Health Declaration Forms (Positive Result)</strong>
+																<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+															</div>
+															<div class="modal-body text-black negativeHDFTable">
+																<table id="negativeHDFTable" class="table table-bordered " style="width:100%">
+																	<thead class="table-dark">
+																		<tr>
+                                                                            <th></th>
+																			<th>#</th>
+																			<th>Name</th>
+																			<th>Type</th>
+																			<th>Result</th>
+																			<th>Date</th>
+																		</tr>
+																	</thead>
+																	<tbody>
+
+																	</tbody>
+																</table>
+															</div>
+															<div class="modal-footer">
+																<button type="button" class="btn btn-secondary btn-flat" data-bs-dismiss="modal"><i class="fa-solid fa-circle-xmark me-2"></i>Close</button>
+															</div> 
+														</div>
+													</div>
+												</div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -210,6 +289,114 @@
             <!-- Building Function JS -->
            
             <script>
+				// TODO 
+
+				function format(d) {
+					// `d` is the original data object for the row
+					return (
+						'<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
+						'<tr>' +
+						'<td>Address:</td>' +
+						'<td class="w-100">' +
+						d.userAddress +
+						'</td>' +
+						'</tr>' +
+						'</table>'
+					);
+				}
+
+
+				$(document).ready(function () { 
+                    // TODO Table First
+                    var positiveHDFTable = $('#positiveHDFTable').DataTable({
+                        "ordering": false,
+                        "ajax": '../partials/php/get-positive-health-declaration-forms.php',
+                        "columns": [
+							{
+								className: 'dt-control',
+								orderable: false,
+								data: null,
+								defaultContent: '',
+							},
+                            {data: "declarationId"},
+                            {data: "userFullName"},
+                            {data: "userType"},
+                            {data: "declarationResult"},
+                            {data: "declarationDateCreated"}
+                        ],
+                        "createdRow": (row, data) => {
+                            if (data.declarationResult == "Positive") {
+                                $('td:eq(3)', row).addClass("bg-success text-white");
+                            } else {
+                                $('td:eq(3)', row).addClass("bg-danger text-white");
+                            }
+                        },
+                    });
+
+					$('#positiveHDFTable tbody').on('click', 'td.dt-control', function () {
+						var tr = $(this).closest('tr');
+						var row = positiveHDFTable.row(tr);
+				
+						if (row.child.isShown()) {
+							// This row is already open - close it
+							row.child.hide();
+							tr.removeClass('shown');
+						} else {
+							// Open this row
+							row.child(format(row.data())).show();
+							tr.addClass('shown');
+						}
+					});
+
+                    var negativeHDFTable = $('#negativeHDFTable').DataTable({
+                        "ordering": false,
+                        "ajax": '../partials/php/get-negative-health-declaration-forms.php',
+                        "columns": [
+							{
+								className: 'dt-control',
+								orderable: false,
+								data: null,
+								defaultContent: '',
+							},
+                            {data: "declarationId"},
+                            {data: "userFullName"},
+                            {data: "userType"},
+                            {data: "declarationResult"},
+                            {data: "declarationDateCreated"}
+                        ],
+                        "createdRow": (row, data) => {
+                            if (data.declarationResult == "Positive") {
+                                $('td:eq(3)', row).addClass("bg-success text-white");
+                            } else {
+                                $('td:eq(3)', row).addClass("bg-danger text-white");
+                            }
+                        },
+                    });
+
+                    $('#negativeHDFTable tbody').on('click', 'td.dt-control', function () {
+						var tr = $(this).closest('tr');
+						var row = negativeHDFTable.row(tr);
+				
+						if (row.child.isShown()) {
+							// This row is already open - close it
+							row.child.hide();
+							tr.removeClass('shown');
+						} else {
+							// Open this row
+							row.child(format(row.data())).show();
+							tr.addClass('shown');
+						}
+					});
+
+                    setInterval( function () {
+                        positiveHDFTable.ajax.reload( null, false );
+                        negativeHDFTable.ajax.reload( null, false );
+                    }, 30000 );
+
+				});
+
+
+
                 // TODO Line Chart
 
                 var salesChartCanvas = $('#salesChart').get(0).getContext('2d')
@@ -259,18 +446,18 @@
                 legend: {
                     display: false
                 },
-                    scales: {
-                        xAxes: [{
-                            gridLines: {
-                                display: false
-                            }
-                        }],
-                        yAxes: [{
-                            gridLines: {
-                                display: false
-                            }
-                        }]
-                    }
+                    // scales: {
+                    //     xAxes: [{
+                    //         gridLines: {
+                    //             display: false
+                    //         }
+                    //     }],
+                    //     yAxes: [{
+                    //         gridLines: {
+                    //             display: false
+                    //         }
+                    //     }]
+                    // }
                 }
 
                 var salesChart = new Chart(salesChartCanvas, {
